@@ -1,0 +1,72 @@
+<!-- Modal -->
+<div class="modal fade close-modal" {% block modal-id %}{% endblock modal-id %} tabindex="-1" aria-labelledby="defaultModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="defaultModalLabel"><i class="fas fa-code"></i>&nbsp;&nbsp; {% block modal-title %}{% endblock modal-title %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form  method="POST" {% block action %} {% endblock action %} {% block validation %}{% endblock validation %} enctype="multipart/form-data" outocomplete="off">
+          {% csrf_token %}
+        <div class="modal-body">
+
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn btn-info background-light">
+                <i class="fas fa-user-alt"></i>
+            </button>
+            <input type="text" class="form-control name" maxlength="40" {% block id-name %}{% endblock id-name %} name="name" placeholder="Полное Имя">
+          </div>
+
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn btn-secondary background-light">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <input type="text" class="form-control age" maxlength="2" {% block id-age %}{% endblock id-age %} name="age" placeholder="Возраст">
+          </div>
+
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn btn-secondary background-light">
+                <i class="fas fa-envelope"></i>
+            </button>
+            <input type="text" class="form-control email" maxlength="40" {% block id-email %}{% endblock id-email %} name="email" placeholder="Email">
+          </div>
+
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn btn-secondary background-light">
+                <i class="fas fa-phone"></i>
+            </button>
+            <input type="text" class="form-control phone" {% block id-phone %}{% endblock id-phone %} name="phone " placeholder="Телефон">
+          </div>
+
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn btn-secondary background-light">
+                <i class="fas fa-map-marker-alt"></i>
+            </button>
+            <input type="text" class="form-control" maxlength="50" {% block id-address %}{% endblock id-address %} name="address" placeholder="Адрес">
+          </div>
+
+          <div class="mb-2 mt-3">
+            <textarea class="form-control" maxlength="500" {% block id-experience %}{% endblock id-experience %} name="experience" rows="3" placeholder="Расскажи немного о своем опыте"></textarea>
+          </div>
+
+          <div class="mb-2 mt-3">
+            <textarea class="form-control" maxlength="500" {% block id-skills %}{% endblock id-skills %} name="skills" rows="3" placeholder="Расскажи немного о своих навыках"></textarea>
+          </div>
+
+          <hr style="height: 2px;">
+
+          <div class="mb-3">
+            <div class="mb-3" style="font-size: 14px;"><i class="fas fa-cloud-upload-alt">&nbsp;Загрузите свое резюме</i></div>
+              <input type="file" class="form-control-sm" name="file" {% block id-file %}{% endblock id-file %}
+                accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+              <div class="form-text" style ="font-size: 12px"> * Предпочтительное расширение: pdf - doc - docx </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark btn-sm btn-cancel" data-bs-dismiss="modal">Закрыть</button>
+            <button type="submit" class="btn btn-secondary btn-sm btn-send">Отправить</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
